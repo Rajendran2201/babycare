@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Naani
 from django.contrib.auth.decorators import login_required
-from .models import DiscussionThread, Reply
+from .models import DiscussionThread, Reply, Pediatrician
 from .forms import DiscussionThreadForm, ReplyForm
 # Create your views here.
 
@@ -38,24 +38,6 @@ def get_naani(request):
 def book_naani(request, nanny_id):
     nanny = get_object_or_404(Naani, id=nanny_id)
     return render(request, 'book_naani.html', {'nanny': nanny})
-
-@login_required
-def confirm_booking(request, nanny_id):
-    if request.method == "POST":
-        nanny = get_object_or_404(Naani, id=nanny_id)
-        date = request.POST['date']
-        time = request.POST['time']
-        duration = request.POST['duration']
-        
-        Booking.objects.create(user=request.user, nanny=nanny, date=date, time=time, duration=duration, status='Pending')
-        
-        return redirect('naani_dashboard')
-
-@login_required
-def naani_dashboard(request):
-    bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'naani_dashboard.html', {'bookings': bookings})
-
 
 def parenting_tips(request):
   return render(request, "parenting_tips.html")
@@ -96,7 +78,8 @@ def discussion_create(request):
     return render(request, 'discussion_create.html', {'form': form})
 
 def telehealth(request):
-  return render(request, "telehealth.html")
+  pediatricians = Pediatrician.objects.all()
+  return render(request, "telehealth.html", {'doctors': pediatricians})
 
 def memory_book(request):
   return render(request, "memory_book.html")

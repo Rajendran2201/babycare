@@ -9,4 +9,154 @@
 
 
 
+<!-- Swiper Carousel -->
+<div class="swiper mySwiper">
+<div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide">
+        <img src="{% static '/assests/cor1.jpg' %}" alt="Baby">
+        <div class="carousel-text">
+            <h2>Understanding Your Baby's Needs</h2>
+            <p>Decode your baby’s cries and respond with love.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+        <img src="{% static '/assests/cor2.jpg' %}" alt="Motherhood">
+        <div class="carousel-text">
+            <h2>Mom's Corner</h2>
+            <p>A supportive community for new moms.</p>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="swiper-slide">
+        <img src="{% static '/assests/cor3.jpg' %}" alt="Sleeping Baby">
+        <div class="carousel-text">
+            <h2>Healthy Sleep for Your Baby</h2>
+            <p>Expert tips for peaceful sleep.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+
+<!-- Pagination Dots -->
+<div class="swiper-pagination"></div>
+</div>
+
+
+
+<div class="container" id="carding">
+    <!-- Card 1: Meet the Pediatrician -->
+    <div class="card">
+        <img src="{% static '/assests/Pediatrician.gif' %}" alt="Pediatrician" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Meet the Experts</h2>
+            <p class="card-description">
+                Connect with our experienced pediatricians for trusted advice and personalized care for your baby.
+            </p>
+            <a class="card-button" href="{% url 'telehealth' %}">Learn More</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="{% static '/assests/Baby birth.gif' %}" alt="Pediatrician" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Baby Cry Analyzer</h2>
+            <p class="card-description">
+                Understand your baby's needs by analyzing their cries. Our tool identifies different cries to help you respond faster.
+            </p>
+            <button class="card-button" onclick="window.location.href='new2.html'">Learn More</button>
+        </div>
+    </div>
+    <!-- Card 2: Health Tips -->
+    <div class="card">
+        <img src="{% static '/assests/Motherhood.gif' %}" alt="Health Tips" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Child Health Tips</h2>
+            <p class="card-description">
+                Get expert tips on nutrition, sleep, and wellness to keep your child healthy and happy.
+            </p>
+            <button class="card-button" onclick="window.location.href='health-tips.html'">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Card 3: Book an Appointment -->
+    <div class="card">
+        <img src="{% static '/assests/Sleeping baby.gif' %}" alt="Appointment" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Play Audio</h2>
+            <p class="card-description">
+                Schedule a visit with a top pediatrician in your area today for quality medical care.
+            </p>
+            <button class="card-button" onclick="window.location.href='appointment.html'">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Card 4: Emergency Care -->
+    <div class="card">
+        <img src="{% static '/assests/Midwives.gif' %}"alt="Emergency Care" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Emergency Care</h2>
+            <p class="card-description">
+                Find immediate medical assistance and emergency services for your child.
+            </p>
+            <button class="card-button" onclick="window.location.href='emergency.html'">Get Help</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="{% static '/assests/Midwives1.gif' %}" alt="Pediatrician" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Mom's Corner</h2>
+            <p class="card-description">
+                A place for moms to connect, share experiences, and find solutions. Join a supportive community where your questions are answered and your concerns are addressed
+            </p>
+            <button class="card-button" onclick="window.location.href='new2.html'">Learn More</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="{% static '/assests/Moment to remember.gif' %}" alt="Pediatrician" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Cherished Moments</h2>
+            <p class="card-description">
+                Capture and cherish every special moment with your baby. Create a digital memory book to relive precious memories.
+            </p>
+            <button class="card-button" onclick="window.location.href='new2.html'">Learn More</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="{% static '/assests/Pediatrician.gif' %}" alt="Pediatrician" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Meet the Pediatrician</h2>
+            <p class="card-description">
+                Our expert pediatricians provide compassionate care for your little ones. Book a consultation today!
+            </p>
+            <button class="card-button" onclick="window.location.href='new2.html'">Learn More</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        },
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        },
+});
+    });
+</script>
+
 {% endblock %}

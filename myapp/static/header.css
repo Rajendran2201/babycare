@@ -1,0 +1,45 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* Header styles */
+.header {
+    background-color: #f8c8d2; /* Baby Pink */
+}
+
+.lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+/* Button styles */
+.cta-button {
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: lightgray;
+}
