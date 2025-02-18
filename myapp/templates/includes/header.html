@@ -4,39 +4,15 @@
 <link rel="stylesheet" type="text/css" href="{% static 'header.css' %}">
 {% endblock %}
 
- <div class="navigation">
-      <div class="title">
-        <h1>BabyCare</h1>
-      </div>
-      <div class="pages">
-        <nav>
-          <a href="{% url 'index' %}">Home</a>
-          <div class="dropdown">
-            <a href="#" class="dropdown-toggle">About</a>
-            <div class="dropdown-menu">
-              <a href="#">Contact</a>
-            </div>
-          </div>
-
-          <div class="dropdown">
-            <a href="#" class="dropdown-toggle">About Us</a>
-            <div class="dropdown-menu">
-              <a href="#">Know us</a>
-              <a href="{% url 'discussion_forum' %}">Discuss</a>
-            </div>
-          </div>
-
-          <div class="dropdown">
-            <a href="#" class="dropdown-toggle">Contact Us</a>
-            <div class="dropdown-menu">
-              <a href="{% url 'get_naani' %}">Get Naani</a>
-              <a href="#">Profile</a>
-            </div>
-          </div>
-      </nav>  
-      </div>
-      
-    </div>
-    
-    
-
+<header>
+  <div class="header">
+      <nav class="lists">
+          <img src="/assests/Baby birth1.gif" alt="Logo" class="logo">
+          <a href="#" class="item">Home</a>
+          <a href="#" class="item">Contacts</a>
+          <a href="#carding" class="item">Our Services</a>
+          <a href="#" class="item">About Us</a>
+          <a class="cta-button" href="{% url 'get_naani' %}">Get a Nana</a>
+      </nav>
+  </div>
+</header>

@@ -28,3 +28,14 @@ class Reply(models.Model):
     
     def __str__(self):
         return f"Reply by {self.created_by.username} on {self.thread.title}"
+
+class Pediatrician(models.Model):
+    name = models.CharField(max_length=100)
+    specialty = models.CharField(max_length=100, default='Pediatrician')
+    experience = models.CharField(max_length=50, null=True, blank=True)
+    contact = models.CharField(max_length=20, null=True, blank=True)
+    image = models.ImageField(upload_to='pediatricians/', null=True, blank=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name

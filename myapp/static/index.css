@@ -1,0 +1,164 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    background-color: #f8c8d2; /* Baby Pink */
+}
+
+.lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+/* Button styles */
+.cta-button {
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: lightgray;
+}
+
+/* Container for cards */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+/* Card styling */
+.card {
+    width: 300px;
+    background-color: #ffebf0; /* Light baby pink */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 60px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Image styling */
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Content styling */
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #d63384;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Button styling */
+.card-button {
+    background-color: #f48fb1; /* Pink */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.card-button:hover {
+    background-color: #f06292; /* Darker Pink */
+}
+
+
+/* Swiper Styles */
+/* Swiper Container */
+.swiper {
+    width: 100%;
+    height: 100%; /* Adjust height */
+    overflow: hidden; /* Prevents extra slides from stacking */
+}
+
+/* Ensure slides are in a row */
+.swiper-wrapper {
+    display: flex;
+}
+
+/* Swiper Slide */
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Image Styling */
+.swiper-slide img {
+    width: 1550px;
+    height: 700px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Text Overlay */
+.carousel-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.carousel-text h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.carousel-text p {
+    color: #ffebf0;
+    font-size: 16px;
+}

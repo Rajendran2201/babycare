@@ -1,0 +1,170 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    background-color: #f8c8d2; /* Baby Pink */
+}
+
+.lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+/* Button styles */
+.cta-button {
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: lightgray;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Cards container */
+.cards-container {
+    display: flex;
+    flex-direction: column;  /* Stack vertically */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Doctor Profile Boxes */
+.card {
+    width: 45%;
+    max-width: 700px;
+    background-color: #ffebf0; /* Light baby pink */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Image inside the card */
+.card img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+/* Doctor details inside the card */
+.card p {
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Button inside the card */
+.card button {
+    background-color: #f48fb1; /* Pink */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card button:hover {
+    background-color: #f06292; /* Darker Pink */
+}
+
+/* Left and Right positioning of the cards */
+.card.left {
+    align-self: flex-start;  /* Align to the left */
+}
+
+.card.right {
+    align-self: flex-end; /* Align to the right */
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Popup Box styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.popup-img {
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 20%;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup .close:hover {
+    color: red;
+}
