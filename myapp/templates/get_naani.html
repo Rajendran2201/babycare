@@ -5,6 +5,31 @@
 {% endblock %}
 {% block content %}
 
-{% comment %} write your code here {% endcomment %}
+<div class="container">
+    <h2>Book your Naani</h2>
+
+    <div class="form-section">
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'get_naani' %}">
+        <label for="experience">Experience (Years):</label>
+        <input type="number" name="experience" id="experience" min="0" placeholder="Min Experience">        <label for="rating">Minimum Rating:</label>
+        <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" placeholder="Rating (1-5)">
+        <div><button type="submit">Search</button></div>
+    </form>
+</div>
+    <!-- Nanny Listings -->
+    <div class="nanny-list">
+        {% for nanny in nannies %}
+        <div class="nanny-card">
+            <img src="{{ nanny.image.url }}" alt="Nanny Picture">
+            <h3>{{ nanny.name }}</h3>
+            <p>Experience: {{ nanny.experience }} years</p>
+            <p>Ratings: ⭐ {{ nanny.rating }}</p>
+            <p>Availability: {{ nanny.availability }}</p>
+            <a href="{% url 'book_naani' nanny.id %}" class="btn">Book Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

@@ -1,0 +1,2 @@
+from .populate_data import Command as PopulateNaaniCommand
+from .populate_discussions import Command as PopulateDiscussionCommand

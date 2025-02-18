@@ -3,10 +3,13 @@
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
 {% endblock %}
-
-
-{% comment %} 
-
-write your footer code here 
-
-{% endcomment %}
+<div class="footer">
+  <div class="social-links">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="license">
+    <p>&copy; <span id="year">2025</span> BabyCare. All rights reserved.</p>
+  </div>
+</div>

@@ -5,6 +5,16 @@
 {% endblock %}
 {% block content %}
 
-{% comment %} write your code here {% endcomment %}
+<h2>Discussion Forum</h2>
+<a href="{% url 'discussion_create' %}">Create a New Discussion</a>
+<div>
+    {% for thread in threads %}
+        <div>
+            <h3><a href="{% url 'discussion_detail' pk=thread.pk %}">{{ thread.title }}</a></h3>
+            <p>{{ thread.content|truncatewords:20 }}</p>
+            <p>Created by {{ thread.created_by.username }} on {{ thread.created_at }}</p>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
