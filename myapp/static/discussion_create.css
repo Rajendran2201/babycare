@@ -1,0 +1,67 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF5F5; /* Soft pastel pink */
+    color: #5D4037; /* Warm brown */
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Heading */
+h2 {
+    text-align: center;
+    color: #D885A3; /* Nude pink */
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* Form Container */
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Form Labels & Inputs */
+form p {
+    font-size: 1rem;
+    color: #6D4C41; /* Soft brown */
+    margin-bottom: 15px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #FFB6C1; /* Light pink */
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #E57373; /* Darker pink */
+}
+
+/* Submit Button */
+button {
+    background-color: #FFB6C1; /* Light pink */
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #E57373; /* Darker pink */
+}

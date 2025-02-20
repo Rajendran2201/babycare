@@ -1,0 +1,65 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFF5F5; /* Soft pastel pink */
+  color: #5D4037; /* Warm brown for readability */
+  margin: 0;
+  padding: 0;
+}
+
+/* Page Heading */
+h2 {
+  text-align: center;
+  color: #D885A3; /* Nude pink */
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+/* Create Discussion Link */
+a {
+  display: inline-block;
+  background-color: #FFB6C1; /* Light pink */
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+a:hover {
+  background-color: #E57373; /* Darker pink */
+}
+
+/* Discussion Threads Container */
+div {
+  width: 80%;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Discussion Thread */
+div > div {
+  background-color: #FFE4E1; /* Light pastel pink */
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+h3 a {
+  color: #8D6E63; /* Warm brown */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 a:hover {
+  color: #D885A3; /* Nude pink */
+}
+
+p {
+  font-size: 1rem;
+  color: #6D4C41; /* Soft brown */
+}

@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'babycare_db',
         'USER': 'root',
-        'PASSWORD': 'Data@123',
+        'PASSWORD': 'raj2201',
         'HOST': 'localhost',
         'PORT': '3306',
     }

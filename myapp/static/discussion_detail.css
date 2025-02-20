@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFF5F5; /* Soft pastel pink */
+  color: #5D4037; /* Warm brown for readability */
+  margin: 0;
+  padding: 0;
+}
+
+/* Discussion Title */
+h2 {
+  text-align: center;
+  color: #D885A3; /* Nude pink */
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+/* Thread Content */
+p {
+  font-size: 1rem;
+  color: #6D4C41; /* Soft brown */
+  line-height: 1.6;
+  padding: 10px;
+}
+
+/* Replies Section */
+h3 {
+  color: #E57373; /* Warm pink */
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/* Reply Container */
+div {
+  background: #FFE4E1; /* Light pastel pink */
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reply Form */
+h4 {
+  color: #8D6E63; /* Warm brown */
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: auto;
+}
+
+button {
+  background-color: #FFB6C1; /* Light pink */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #E57373; /* Darker pink */
+}
+
+/* Back to Discussion List Link */
+a {
+  display: block;
+  text-align: center;
+  color: #D885A3; /* Nude pink */
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+a:hover {
+  color: #E57373; /* Slightly darker pink */
+}
