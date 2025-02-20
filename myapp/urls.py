@@ -17,13 +17,22 @@ urlpatterns = [
     path("memory_book", views.memory_book, name="memory_book"),
     path("growth_track", views.growth_track, name="growth_track"),
     path("about", views.about, name="about"),
+    path("milestone_tracker", views.milestone_tracker, name="milestone_tracker"),
+    path("moms_corner", views.moms_corner, name="moms_corner"),
     path("contact", views.contact, name="contact"),
     path("profile", views.profile, name="profile"),
-    path('book-naani/<int:nanny_id>/', views.book_naani, name='book_naani'),
-   # path('confirm-booking/<int:nanny_id>/', views.confirm_booking, name='confirm_booking'),
+     path("health_tips", views.health_tips, name="health_tips"),
+    path('book_naani', views.book_naani, name='book_naani'),
     path('discussion_forum', views.discussion_forum, name='discussion_forum'),
     path('thread/<int:pk>/', views.discussion_detail, name='discussion_detail'),
     path('create/', views.discussion_create, name='discussion_create'),
+    path('prediction', views.prediction, name='prediction'),
+    path('play_audio', views.play_audio, name='play_audio'),
+     path('emergency_care', views.emergency_care, name='emergency_care'),
+
+
+    
+
 ]
 
 

@@ -1,0 +1,75 @@
+.prediction-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.file-input-container {
+  position: relative;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.predict-button {
+  padding: 0.75rem 1.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.predict-button:hover {
+  background: #0056b3;
+}
+
+.loading-spinner {
+  text-align: center;
+  margin: 1rem 0;
+  color: #007bff;
+}
+
+.result-container {
+  margin-top: 1rem;
+}
+
+.prediction-result {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #007bff;
+}
+
+.prediction {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin: 0.5rem 0;
+}
+
+.confidence {
+  color: #6c757d;
+}
+
+.error {
+  color: #dc3545;
+  padding: 1rem;
+  background: #f8d7da;
+  border-radius: 4px;
+  border-left: 4px solid #dc3545;
+}

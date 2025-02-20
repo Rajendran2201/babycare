@@ -1,0 +1,19 @@
+.one{
+  background-color: white;
+  height: 738px;
+  width: 804px;
+  margin: 43.6px 365px;
+  padding: 10px 0px 10px 10px;
+  border-radius: 10px;
+  border: solid #f8c8d2;
+  border-bottom-left-radius: 80px;
+}
+
+.two{
+  background-color: #f8c8d2;
+  height:710px ;
+  width: 314px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 80px;
+  border-bottom-left-radius:80px ;
+}

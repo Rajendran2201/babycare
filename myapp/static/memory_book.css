@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+h1 {
+  color: #f06292;
+  margin: 20px 0;
+  font-family: cursive;
+  font-size: 60px;
+}
+
+.quote {
+  font-family: cursive;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.month {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: pink;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.month:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+p {
+  font-size: 20px;
+  color: #000000;
+  margin: 10px 0;
+  font-family: cursive;
+  font-weight: 20px;
+}
+
+/* Slideshow Modal */
+.modal {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  background:pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left:100px;
+  margin-right:100px;
+  margin-top:80px;
+}
+
+.modal img {
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.modal p {
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  background: rgba(223, 160, 160, 0.6);
+  border: none;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.add{
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.add:hover{
+  transform:scale(1.1);
+}
+
+.quote{
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.quote:hover{
+  transform:scale(1.02);
+}

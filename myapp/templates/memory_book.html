@@ -5,6 +5,157 @@
 {% endblock %}
 {% block content %}
 
-{% comment %} write your code here {% endcomment %}
+    <h1 class="add">Baby's Memory Book</h1>
+    <p class="quote">
+      "From the first smile to the first step, every month tells a story—this memory book is a time capsule of love, laughter, and little miracles!"
+    </p>
+
+    <div class="gallery">
+      <!-- 12 months of baby images -->
+      <div class="month" onclick="openSlideshow(0)">
+        <img
+          src="{% static "assests/1Month.jpg" %}"          alt="Month 1"
+        />
+        <p>Month 1: Welcome to the world!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(1)">
+        <img
+          src="{% static "assests/2Month.jpg" %}"          alt="Month 2"
+        />
+        <p>Month 2: First smile!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(2)">
+        <img
+          src="{% static "assests/3month.jpg" %}"          alt="Month 3"
+        />
+        <p>Month 3: Started rolling over!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(3)">
+        <img
+          src="{% static "assests/4Month.jpg" %}"          alt="Month 4"
+        />
+        <p>Month 4: Loves tummy time!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(4)">
+        <img
+          src="{% static "assests/5Month.jpg" %}"          alt="Month 5"
+        />
+        <p>Month 5: First laugh!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(5)">
+        <img
+          src="{% static "assests/6Month.jpg" %}"          alt="Month 6"
+        />
+        <p>Month 6: Sitting up!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(6)">
+        <img
+          src="{% static "assests/7Month.jpg" %}"          alt="Month 7"
+        />
+        <p>Month 7: Loves playing peek-a-boo!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(7)">
+        <img
+          src="{% static "assests/8Month.jpg" %}"          alt="Month 8"
+        />
+        <p>Month 8: Crawling everywhere!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(8)">
+        <img
+          src="{% static "assests/9Month.jpg" %}"          alt="Month 9"
+        />
+        <p>Month 9: First tooth appeared!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(9)">
+        <img
+          src="{% static "assests/10MONTH.jpg" %}"
+          alt="Month 10"
+        />
+        <p>Month 10: Loves clapping hands!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(10)">
+        <img
+          src="{% static "assests/11Month.jpg" %}"
+          alt="Month 11"
+        />
+        <p>Month 11: Taking first steps!</p>
+      </div>
+      <div class="month" onclick="openSlideshow(11)">
+        <img
+          src="{% static "assests/12Month.jpg" %}"
+          alt="Month 12"
+        />
+        <p>Month 12: Happy 1st Birthday!</p>
+      </div>
+    </div>
+
+
+  <!-- Gallery: Clicking an image opens the slideshow -->
+  <div class="gallery">
+    <!-- Dynamically generate image thumbnails -->
+    <script>
+      document.write('<div class="gallery-container">');
+      images.forEach((image, index) => {
+        document.write(`
+          <div class="month" onclick="openSlideshow(${index})">
+            <img src="${image.src}" alt="Month ${index + 1}" />
+            <p>${image.caption}</p>
+          </div>
+        `);
+      });
+      document.write('</div>');
+    </script>
+  </div>
+  
+    <script>
+let currentSlide = 0;
+
+const images = [
+  { src: "{% static 'assests/1Month.jpg' %}", caption: "Month 1: Welcome to the world!" },
+  { src: "{% static 'assests/2Month.jpg' %}", caption: "Month 2: First smile!" },
+  { src: "{% static 'assests/3Month.jpg' %}", caption: "Month 3: Started rolling over!" },
+  { src: "{% static 'assests/4Month.jpg' %}", caption: "Month 4: Loves tummy time!" },
+  { src: "{% static 'assests/5Month.jpg' %}", caption: "Month 5: First laugh!" },
+  { src: "{% static 'assests/6Month.jpg' %}", caption: "Month 6: Sitting up!" },
+  { src: "{% static 'assests/7Month.jpg' %}", caption: "Month 7: Loves playing peek-a-boo!" },
+  { src: "{% static 'assests/8Month.jpg' %}", caption: "Month 8: Crawling everywhere!" },
+  { src: "{% static 'assests/9Month.jpg' %}", caption: "Month 9: First tooth appeared!" },
+  { src: "{% static 'assests/10Month.jpg' %}", caption: "Month 10: Loves clapping hands!" },
+  { src: "{% static 'assests/11Month.jpg' %}", caption: "Month 11: Taking first steps!" },
+  { src: "{% static 'assests/12Month.jpg' %}", caption: "Month 12: Happy 1st Birthday!" },
+];
+
+
+// Function to open slideshow
+function openSlideshow(index) {
+  currentSlide = index;
+  updateSlide();
+  document.getElementById("slideshow").style.display = "flex";
+}
+
+// Function to update the displayed slide
+function updateSlide() {
+  document.getElementById("slide-img").src = images[currentSlide].src;
+  document.getElementById("caption").innerText = images[currentSlide].caption;
+}
+
+// Function to close slideshow
+function closeSlideshow() {
+  document.getElementById("slideshow").style.display = "none";
+}
+
+// Function to go to the previous slide
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + images.length) % images.length;
+  updateSlide();
+}
+
+// Function to go to the next slide
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % images.length;
+  updateSlide();
+}
+
+    </script>
 
 {% endblock %}

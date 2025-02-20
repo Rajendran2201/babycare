@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'prediction.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="prediction-container">
+    <h2>Baby Cry Analyzer</h2>
+    
+    <form id="upload-form" class="upload-form">
+        {% csrf_token %}
+        <div class="file-input-container">
+          <label for="audio" >Choose audio file</label>
+            <input type="file" class="file-label" id="audio" name="audio_file" accept=".wav,.mp3,.m4a" required>
+            
+        </div>
+        
+        <button type="submit" class="predict-button">Analyze Cry</button>
+    </form>
+
+    <div id="loading" class="loading-spinner" style="display: none;">
+        Analyzing...
+    </div>
+
+    <div id="result" class="result-container"></div>
+</div>
+
+<script>
+document.getElementById("upload-form").onsubmit = async function(event) {
+    event.preventDefault();
+    
+    const resultDiv = document.getElementById("result");
+    const loadingDiv = document.getElementById("loading");
+    const audioFile = document.getElementById("audio").files[0];
+    
+    // Validate file
+    if (!audioFile) {
+        resultDiv.innerHTML = '<p class="error">Please select an audio file</p>';
+        return;
+    }
+    
+    // Show loading
+    loadingDiv.style.display = "block";
+    resultDiv.innerHTML = "";
+    
+    try {
+        const formData = new FormData();
+        formData.append("audio_file", audioFile);
+        
+        const response = await fetch("{% url 'prediction' %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        });
+        
+        const data = await response.json();
+        console.log("Response data:", data);  // Debug log
+        
+        if (data.status === "success") {
+            resultDiv.innerHTML = `
+                <div class="prediction-result">
+                    <h3>Analysis Result:</h3>
+                    <p class="prediction">Predicted Cry Type: ${data.prediction}</p>
+                    <p class="confidence">Confidence: ${(data.confidence * 100).toFixed(2)}%</p>
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = `<p class="error">Error: ${data.message || 'Unknown error occurred'}</p>`;
+        }
+    } catch (error) {
+        console.error("Error:", error);  // Debug log
+        resultDiv.innerHTML = `<p class="error">Error: ${error.message || 'Failed to process request'}</p>`;
+    } finally {
+        loadingDiv.style.display = "none";
+    }
+};
+</script>
+
+<style>
+.prediction-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.file-input-container {
+    position: relative;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f0f0f0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.predict-button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.predict-button:hover {
+    background: #0056b3;
+}
+
+.loading-spinner {
+    text-align: center;
+    margin: 1rem 0;
+    color: #007bff;
+}
+
+.result-container {
+    margin-top: 1rem;
+}
+
+.prediction-result {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+}
+
+.prediction {
+    font-size: 1.2rem;
+    color: #007bff;
+    margin: 0.5rem 0;
+}
+
+.confidence {
+    color: #6c757d;
+}
+
+.error {
+    color: #dc3545;
+    padding: 1rem;
+    background: #f8d7da;
+    border-radius: 4px;
+    border-left: 4px solid #dc3545;
+}
+</style>
+{% endblock %}

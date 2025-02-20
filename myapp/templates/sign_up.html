@@ -1,10 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'sign_up.css' %}">
 {% endblock %}
+
 {% block content %}
 
-{% comment %} write your code here {% endcomment %}
+
+<body style="background-image: url('{% static 'assets/2.png' %}');">
+    <div class="one">
+        <div style="height: 400px; width: 400px;margin-left: 22%;margin-top: 100px; position: absolute;">
+            <h2 class="px-4 pb-4">Sign-up</h2>
+            <p class="ps-4 pt-2" style="font-weight: bold;">Full Name</p>
+            <input class="ps-2 ms-4 rounded" style="width: 350px;" type="text">
+            <p class="ps-4 pt-2" style="font-weight: bold;">E-mail</p>
+            <input class="ps-2 ms-4 rounded" style="width: 350px;" type="text">
+            <p class="ps-4 pt-2" style="font-weight: bold;">Mobile Number</p>
+            <input class="ps-2 ms-4 rounded" style="width: 350px;" type="text">
+            <p class="ps-4 pt-2" style="font-weight: bold;">Password</p>
+            <input class="ps-2 ms-4 rounded" style="width: 350px;" type="password">
+            <button class="mx-4 my-3" style="width: 350px; background-color:#f8c8d2; border-radius: 25px;">Sign Up</button>
+            <p style="font-size: 12px;" class="mx-4">By continuing, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
+        </div>
+        <div class="two">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="{% static "/assests/depositphotos_388885740-stock-photo-mother-holding-arms-kissing-cute-removebg-preview.png"%}" class="d-block w-100" style="margin-top: 200px; margin-left: 20px;">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{% static "/assests/cor1-removebg-preview.png"%}" class="d-block w-100" style="margin-top: 200px;padding-right: 12px; padding-left: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static "/assests/smile-surprise-baby-child-wallpaper-preview-removebg-preview.png"%}" class="d-block w-100" style="margin-top: 200px; width:200px; padding-right: 10px;padding-left: 10px;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 
 {% endblock %}

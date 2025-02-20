@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'health_tips.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Health Tips</h1>
+    <div class="container">
+    <div class="card" onclick="openModal('nutrition')">
+        <img src="{% static "/assests/Motherhood1.gif" %}" alt="Nutrition" />
+        <h3>Nutrition</h3>
+        <p>Eat a balanced diet with fruits & vegetables.</p>
+    </div>
+    <div class="card" onclick="openModal('wellness')">
+        <img src="{% static "/assests/Pediatrician1.gif" %}" alt="Wellness" />
+        <h3>Wellness</h3>
+        <p>Stay hydrated and exercise regularly.</p>
+    </div>
+    <div class="card" onclick="openModal('sleep')">
+        <img src="{% static "/assests/Sleeping baby1.gif" %}" alt="Sleep" />
+        <h3>Sleep</h3>
+        <p>Maintain a consistent sleep routine.</p>
+    </div>
+    </div>
+
+    <div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-text"></p>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+    function openModal(type) {
+        const modal = document.getElementById("modal");
+        const title = document.getElementById("modal-title");
+        const text = document.getElementById("modal-text");
+
+        let markdownContent = "";
+
+        if (type === "nutrition") {
+    title.innerText = "Nutrition Tips";
+    markdownContent = `
+### **For Newborns (0-6 months)**
+- **Breastfeeding is Best** – If possible, exclusively breastfeed for the first six months.
+- **Formula Feeding** – Choose an iron-fortified infant formula if breastfeeding isn’t possible.
+- **Feed on Demand** – Babies should be fed every 2-3 hours.
+- **Vitamin D Supplement** – Breastfed babies may need vitamin D drops (consult a pediatrician).
+
+### **For Infants (6-12 months)**
+- **Start Solid Foods** – Introduce iron-rich foods like mashed beans, lentils, and eggs.
+- **One Food at a Time** – Introduce new foods gradually to monitor allergies.
+- **Fruits & Veggies** – Soft-cooked vegetables and pureed fruits like banana, avocado, and carrots.
+
+### **For Toddlers (1-3 years)**
+- **Balanced Diet** – Include proteins, whole grains, fruits, and dairy.
+- **Limit Processed Foods** – Avoid sugary snacks and packaged foods.
+- **Encourage Hydration** – Offer water instead of sugary drinks.
+`;
+} else if (type === "wellness") {
+    title.innerText = "Wellness Tips";
+    markdownContent = `Here are some wellness tips to keep your baby healthy and happy:
+### **Hygiene & Cleanliness**
+Wash your hands before handling the baby.
+Keep toys, pacifiers, and feeding bottles clean.
+Trim baby's nails regularly to prevent scratches.
+### **Proper Sleep Routine**
+Establish a consistent sleep schedule.
+Keep the sleeping area quiet, dark, and at a comfortable temperature.
+Avoid screen exposure (TV, mobile) before bedtime.
+### **Skin & Body Care**
+Use mild, baby-friendly soaps and lotions.
+Avoid overdressing to prevent overheating.
+Give regular but gentle oil massages for relaxation.
+### **Mental & Emotional Well-being**
+Respond to your baby's cries with love and care.
+Talk, sing, and make eye contact to improve bonding.
+Provide age-appropriate toys to stimulate learning.`
+}
+else if (type === "sleep") {
+        title.innerText = "Sleep Tips";
+markdownContent = `Here are some sleep tips for newborn babies to help them rest better:
+
+### **Establish a Bedtime Routine**
+Keep a consistent bedtime schedule.
+Create a calming routine with activities like bathing, gentle rocking, or lullabies.
+### **Create a Comfortable Sleep Environment**
+Keep the room dark, quiet, and at a comfortable temperature (around 68–72°F or 20–22°C).
+Use a firm mattress with a fitted sheet and no pillows, blankets, or stuffed toys to reduce SIDS risk.
+### **Follow Safe Sleep Practices**
+Always place the baby on their back to sleep.
+Avoid soft bedding, crib bumpers, and loose blankets.
+Use a sleep sack instead of blankets for warmth.
+### **Understand Baby’s Sleep Cycles**
+Newborns sleep 14-17 hours a day but in short periods of 2-4 hours.
+Their sleep patterns are irregular, but they gradually develop a routine.`;
+        }
+
+        // Convert Markdown to HTML using Marked.js
+        text.innerHTML = marked.parse(markdownContent);
+
+        modal.style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+    </script>
+
+{% endblock %}

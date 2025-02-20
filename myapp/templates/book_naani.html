@@ -6,9 +6,9 @@
 {% block content %}
 
 <div class="container">
-    <h2>Book Naani - {{ nanny.name }}</h2>
+    <h2>Book Naani </h2>
     
-    <form method="POST" action="{% url 'confirm_booking' nanny.id %}">
+    <form method="POST" action="#">
         {% csrf_token %}
         <label for="date">Select Date:</label>
         <input type="date" name="date" required>

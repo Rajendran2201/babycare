@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'moms_corner.css' %}">
+{% endblock %}
+{% block content %}
+
+    <button onclick="openForm()" class="add-button">+</button>
+    <div class="header">Baby Care Notes</div>
+    <div class="book-container"></div>
+
+    <div class="form-popup">
+        <h1 class="form-title">Add Note</h1>
+        <hr>
+        <input type="text" placeholder="Title" class="book-title" required>
+        <input type="text" placeholder="Author" class="book-author" required>
+        <textarea placeholder="Short Description..." class="book-desc"></textarea>
+        <input type="file" accept="image/*" class="book-image">
+        <button class="submit-button">Add Note</button>
+        <button class="cancel-button" onclick="closeForm()">Cancel</button>
+    </div>
+
+<script>
+function openForm() {
+    document.querySelector(".form-popup").style.display = "block";
+}
+function closeForm() {
+    document.querySelector(".form-popup").style.display = "none";
+}
+
+// Selecting Elements
+const container = document.querySelector(".book-container");
+const addButton = document.querySelector(".submit-button");
+const titleInput = document.querySelector(".book-title");
+const authorInput = document.querySelector(".book-author");
+const descInput = document.querySelector(".book-desc");
+const imageInput = document.querySelector(".book-image");
+
+// Load notes from localStorage on page load
+document.addEventListener("DOMContentLoaded", loadNotes);
+
+// Function to Add Notes
+addButton.addEventListener("click", function () {
+    const titleText = titleInput.value.trim() || "Untitled";
+    const authorText = authorInput.value.trim() || "Unknown";
+    const descText = descInput.value.trim() || "No description available.";
+    
+    let imgSrc = "default.jpg"; // Default image
+    if (imageInput.files.length > 0) {
+        const reader = new FileReader();
+        reader.readAsDataURL(imageInput.files[0]);
+        reader.onload = function (e) {
+            imgSrc = e.target.result;
+            saveNote(titleText, authorText, descText, imgSrc);
+        };
+    } else {
+        saveNote(titleText, authorText, descText, imgSrc);
+    }
+});
+
+// Save Note to localStorage
+function saveNote(title, author, desc, imgSrc) {
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.push({ title, author, desc, imgSrc });
+    localStorage.setItem("notes", JSON.stringify(notes));
+    displayNotes();
+    resetForm();
+}
+
+// Load and Display Notes from localStorage
+function loadNotes() {
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.forEach(note => addNoteToPage(note.title, note.author, note.desc, note.imgSrc));
+}
+
+// Display Notes on Page
+function displayNotes() {
+    container.innerHTML = "";
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.forEach(note => addNoteToPage(note.title, note.author, note.desc, note.imgSrc));
+}
+
+// Function to Add Note to Page
+function addNoteToPage(title, author, desc, imgSrc) {
+    const bookDiv = document.createElement("div");
+    bookDiv.classList.add("book");
+
+    bookDiv.innerHTML = `
+        <img src="${imgSrc}" alt="Book Image">
+        <div class="book-content">
+            <h2>${title}</h2>
+            <h3>- ${author}</h3>
+            <p>${desc}</p>
+            <button class="delete-button">Delete</button>
+        </div>
+    `;
+
+    container.appendChild(bookDiv);
+}
+
+// Delete Note Functionality
+container.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete-button")) {
+        const bookDiv = e.target.closest(".book");
+        const title = bookDiv.querySelector("h2").textContent;
+
+        let notes = JSON.parse(localStorage.getItem("notes")) || [];
+        notes = notes.filter(note => note.title !== title);
+        localStorage.setItem("notes", JSON.stringify(notes));
+
+        bookDiv.remove();
+    }
+});
+
+// Reset Form
+function resetForm() {
+    titleInput.value = "";
+    authorInput.value = "";
+    descInput.value = "";
+    imageInput.value = "";
+    closeForm();
+}
+</script>
+
+{% endblock %}

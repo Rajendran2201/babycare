@@ -4,15 +4,21 @@
 <link rel="stylesheet" type="text/css" href="{% static 'header.css' %}">
 {% endblock %}
 
-<header>
-  <div class="header">
+<header class="header-block sticky-top">
+  <div class="header sticky-top">
       <nav class="lists">
-          <img src="/assests/Baby birth1.gif" alt="Logo" class="logo">
-          <a href="#" class="item">Home</a>
-          <a href="#" class="item">Contacts</a>
-          <a href="#carding" class="item">Our Services</a>
-          <a href="#" class="item">About Us</a>
-          <a class="cta-button" href="{% url 'get_naani' %}">Get a Nana</a>
+          <img src="{% static "/assests/Baby birth1.gif" %}" alt="Logo" class="logo">
+          <div class="nav-wrapper">
+              <div class="items">
+                  <a href="{% url "index" %}" class="item">Home</a>
+                  <a href="#" class="item">Contacts</a>
+                  <a href="{% url 'index' %}#carding" class="item">Our Services</a>
+                  <a href="{% url "about" %}"  class="item">About Us</a>
+              </div>
+          </div>
+          <div class="cta-container">
+            <a href="{% url "login" %}" class="cta-button">Login</a>
+        </div>
       </nav>
   </div>
 </header>

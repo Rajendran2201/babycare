@@ -1,0 +1,275 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'milestone_tracker.css' %}">
+{% endblock %}
+{% block content %}
+
+
+    <h1>Baby Growth Tracker</h1>
+
+    <div class="tracker-container">
+
+        <!-- First 2 Months Tracker -->
+        <div class="tracker-title">0-2 Months Milestones</div>
+        <div class="tracker" id="tracker-2months">
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Watches as you move
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Looks at a toy for several seconds
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Makes sounds other than crying
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Reacts to loud sounds
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Holds head up when on tummy
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Moves both arms and both legs
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-2months" onclick="updateProgress('2months')"> Opens hand briefly
+            </label>
+
+        
+    </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar-2months"></div>
+        </div>
+        <p class="progress-text" id="progressText-2months">0% Completed</p>
+        <div class="congrats-card" id="congrats-2months">🎉 Congratulations! You're baby have completed the 2-month milestone! 🎉</div>
+</div>
+
+<div class="tracker-container">
+    <!-- 2-4 months growth tracker-->
+     <div class="tracker-title">2-4 Months Milestones</div>
+        <div class="tracker" id="tracker-4months">
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Uses her arm to swing her toys
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Holds head steady without support when you are holding her
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Holds a toy object briefly when you put it in his hand
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Brings hands to mouth
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Makes sounds like "ooh, aaahh"
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Moves both arms and both legs
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-4months" onclick="updateProgress('4months')"> Opens hand briefly
+            </label>
+</div>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar-4months"></div>
+</div>
+<p class="progress-text" id="progressText-4months">0% Completed</p>
+<div class="congrats-card" id="congrats-4months">🎉 Congratulations! You're baby have completed the 4-month milestone! 🎉</div>
+</div>
+        
+
+                
+<div class="tracker-container">     <!-- 4-6 Months Tracker -->
+    <div class="tracker-title">4-6 Months Milestones</div>
+         <div class="Sixth_month_tracker">
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')">Puts things in her mouth to explore them
+                </label>
+    
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')"> closes lips to show she doesn't want more food
+                </label>
+    
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')"> Reaches to grab a toy he wants
+                </label>
+    
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')"> Makes squealing noises
+                </label>
+    
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')"> Rolls from tummy to back
+                </label>
+    
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')"> Leans on hands to support himself when sitting
+                </label>
+    
+                <label class="task">
+                    <input type="checkbox" class="task-checkbox-6months" onclick="updateProgress('6months')"> Knows familiar people and laughs when looking at himself in mirror
+                </label>   
+</div>
+            <!-- Progress Bar for 4-6 Months -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar-6months"></div>
+            </div>
+            <p class="progress-text" id="progressText-6months">0% Completed</p>
+            <div class="congrats-card" id="congrats-6months">🎉 Congratulations! You're baby have completed the 6-month milestone! 🎉</div>
+            </div>
+
+
+
+
+<div class="tracker-container">     <!-- 6-8 Months Tracker -->
+    <div class="tracker-title">6-8 Months Milestones</div>
+        <div class="tracker" id="tracker-8months">
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-8months" onclick="updateProgress('8months')">Looks for objects when dropped out of sight
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-8months" onclick="updateProgress('8months')"> Bangs two things together
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-8months" onclick="updateProgress('8months')"> Makes a different sounds like "mamamama" and "babababba"
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-8months" onclick="updateProgress('8months')"> Lift arms to be picked up
+            </label>
+
+            <label class="task">
+                <input type="checkbox" class="task-checkbox-8months" onclick="updateProgress('8months')"> Gets to a sitting position by himself
+            </label>
+        </div>
+   
+
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar-8months"></div>
+        </div>
+        <p class="progress-text" id="progressText-8months">0% Completed</p>
+        <div class="congrats-card" id="congrats-8months">🎉 Congratulations! You're baby have completed the 8-month milestone! 🎉</div>
+    </div>
+
+<div class="tracker-container">
+    <div class="tracker-title">8-10 Months Milestones</div>
+        <div class="Tenth_month_tracker">
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox-10months" onclick="updateProgress('10months')"> Sits without support
+                        </label>
+            
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox-10months" onclick="updateProgress('10months')"> Shows several facial experiences like happy,sad,angry and surprised
+                        </label>
+            
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox-10months" onclick="updateProgress('10months')"> Looks when you call her name
+                        </label>
+            
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox-10months" onclick="updateProgress('10months')"> Reacts when you leave(looks,reaches for you or cries)
+                        </label>
+            
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox-10months" onclick="updateProgress('10months')"> Smiles or laughs when you play peekabooo
+                        </label>
+                    </div>
+            
+                    <!-- Progress Bar for 12-10 Months -->
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar-10months"></div>
+                    </div>
+                    <p class="progress-text" id="progressText-10months">0% Completed</p>
+                    <div class="congrats-card" id="congrats-10months">🎉 Congratulations! You're baby have completed the 10-month milestone! 🎉</div>
+                    </div>
+            
+                </div>
+
+<div class="tracker-container">
+                <div class="tracker-title">10 - 12 Months Milestones</div>
+                <div class="Twelth_month_tracker">
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')"> Waves Bye-Bye
+                    </label>
+        
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')"> Calls a parent "mama" or "dada" or other special name 
+        
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')"> Understands "NO" and pauses briefly or stops when you say it
+                    </label>
+        
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')"> Pulls up to stand
+        
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')"> Walks holding on to furniture
+                    </label>
+        
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')">Drinks from  acup without a lid as you hold it
+                    </label>
+        
+                    <label class="task">
+                        <input type="checkbox" class="task-checkbox-12months" onclick="updateProgress('12months')"> Picks things up between thumb and pointer finger,like small bits of food
+                    </label>
+                </div>
+        
+                <!-- Progress Bar for 10 - 12 Months -->
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar-12months"></div>
+                </div>
+                <p class="progress-text" id="progressText-12months">0% Completed</p>
+                <div class="congrats-card" id="congrats-12months">🎉 Congratulations! You're baby have completed the 12-month milestone! 🎉</div>
+                </div>
+        
+            </div>
+
+
+
+
+<script>
+function updateProgress(ageGroup) {
+    let checkboxes = document.querySelectorAll(`.task-checkbox-${ageGroup}`);
+    let totalTasks = checkboxes.length;
+    let completedTasks = 0;
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            completedTasks++;
+        }
+    });
+
+    let progressPercentage = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+    progressPercentage = Math.min(100, Math.max(0, progressPercentage));
+
+    document.getElementById(`progressBar-${ageGroup}`).style.width = progressPercentage + "%";
+    document.getElementById(`progressText-${ageGroup}`).innerText = Math.round(progressPercentage) + "% Completed";
+
+    let congratsCard = document.getElementById(`congrats-${ageGroup}`);
+    if (progressPercentage === 100) {
+        congratsCard.style.display = "block";
+    } else {
+        congratsCard.style.display = "none";
+    }
+}
+
+
+</script>
+
+{% endblock %}

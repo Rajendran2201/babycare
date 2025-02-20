@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'play_audio.css' %}">
+{% endblock %}
+
+{% block content %}
+       
+    <div class="container">
+        <h1>Baby Sleep Sounds</h1>
+        <p>Relaxing sounds to help your baby sleep peacefully.</p>
+        
+        <div class="audio-item">
+            <p>Lullaby 1</p>
+            <audio controls>
+                <source src="{% static "audio/children-sleeping-273549.mp3" %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        <div class="audio-item">
+            <p>Lullaby 2</p>
+            <audio controls>
+                <source src="{% static "audio/deck-the-halls-background-christmas-music-for-video-calesta-version-253224.mp3" %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        <!-- Add more audio tracks similarly -->
+        
+        <div class="audio-item">
+            <p>White Noise</p>
+            <audio controls>
+                <source src="{% static "audio/legacy-of-brahms-lullaby-background-orchestral-music-for-video-full-274550.mp3" %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          let audioPlayers = document.querySelectorAll("audio"); // Select all audio elements
+    
+          audioPlayers.forEach(audio => {
+              audio.addEventListener("play", function() {
+                  // Pause all other audio elements when one starts playing
+                  audioPlayers.forEach(otherAudio => {
+                      if (otherAudio !== audio) {
+                          otherAudio.pause();
+                      }
+                  });
+              });
+          });
+      });
+    </script>
+    
+
+{% endblock %}

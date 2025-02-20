@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-family: cursive;
+  font-size: 75px;
+  margin-top: 40px;
+}
+
+.tracker-container {
+  width: 60%;
+  margin: 0 auto;
+  text-align: left;
+  font-size:25px;
+  font-family:cursive;
+  background: #f8c8d2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  gap:20px;
+  margin-bottom: 30px; /* Adds gap between tracker containers */
+
+}
+
+.tracker-title {
+  font-size: 32pxpx;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size:32px;
+  font-family:cursive;
+  justify-content: center;
+  margin-bottom:35px;
+  align-items:center;
+}
+
+.task {
+  display: block;
+  margin: 10px 0;
+  font-size: 20px;
+  align-items: center;
+  justify-content: start;
+  gap: 15px; /* Ensures proper spacing between checkbox and text */
+}
+
+.task input[type="checkbox"] {
+ transform: scale(1.5); /* Increases checkbox size */
+}
+
+.progress-container {
+  width: 50%;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin: 10px auto;
+  height: 25px;
+  position: relative;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #f06292;
+  border-radius: 10px;
+  transition: width 0.5s;
+}
+
+.progress-text {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Congratulations Card */
+.congrats-card {
+  display: none;
+  background-color: #f06292;
+  color: black;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.images{
+  display:inline-flex;
+
+}

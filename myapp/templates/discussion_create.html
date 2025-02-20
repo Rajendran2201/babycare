@@ -6,9 +6,53 @@
 
 {% block content %}
 <h2>Create a New Discussion</h2>
-<form method="post">
+<form id="discussion-form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Create Thread</button>
 </form>
+
+<div id="discussion-list">
+    <!-- Dynamically added discussions will appear here -->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("discussion-form").addEventListener("submit", function (e) {
+            e.preventDefault();  // Prevent default form submission
+    
+            let form = e.target;
+            let formData = new FormData(form);
+    
+            fetch("{% url 'discussion_create' %}", {  // Ensure this matches your URL pattern
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.id) {
+                    let discussionList = document.getElementById("discussion-list");
+    
+                    let newDiscussion = document.createElement("div");
+                    newDiscussion.innerHTML = `
+                        <div class="discussion-thread">
+                            <h3>${data.title}</h3>
+                            <p>${data.content}</p>
+                            <small>Created by: ${data.created_by} on ${data.created_at}</small>
+                        </div>
+                    `;
+                    discussionList.prepend(newDiscussion); // Add new discussion at the top
+    
+                    form.reset();  // Clear the form after submission
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+    </script>
+    
+
 {% endblock %}

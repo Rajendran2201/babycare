@@ -13,12 +13,16 @@
 
         <div class="cards-container">
             {% for doctor in doctors %}
-                <div class="card {% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
-                    <button onclick="openPopup('{{ doctor.name }}', '{{ doctor.specialty }}', '{{ doctor.image }}', '{{ doctor.description }}', '{{ doctor.contact }}')">View Profile</button>
-                    <p>{{ doctor.name }} - {{ doctor.specialty }}</p>
-                    <img src="{% static '{{  doctor.image }}' %}" alt="{{ doctor.name }}">
+            <div class="card {% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
+                <div class="doctor-details" style="display: flex;">
+                    <img src="{% static doctor.image %}" alt="{{ doctor.name }}">
+                    <p style="margin-top:5px;">{{ doctor.name }} - {{ doctor.specialty }}</p>
                 </div>
-            {% endfor %}
+                <button onclick="openPopup('{{ doctor.name }}', '{{ doctor.specialty }}', '{{ doctor.image }}', '{{ doctor.description }}', '{{ doctor.contact }}')">
+                    View Profile
+                </button>
+            </div>
+        {% endfor %}
         </div>
     </div>
 
@@ -26,7 +30,7 @@
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closePopup()">&times;</span>
-            <img id="popup-img" src="{% static '{{  doctor.image }}' %}" alt="Doctor Image">
+            <img id="popup-img" alt="Doctor Image">
             <h2 id="popup-name">Doctor Name</h2>
             <p id="popup-description">Description about the doctor.</p>
             <p id="popup-contact">Contact: </p>
@@ -35,16 +39,20 @@
 
     <script>
         function openPopup(name, specialty, image, description, contact) {
-            document.getElementById('popup-img').src = image;
+            document.getElementById('popup-img').src = "/static/" + image;
             document.getElementById('popup-name').innerText = name + " - " + specialty;
             document.getElementById('popup-description').innerText = description;
             document.getElementById('popup-contact').innerText = "Contact: " + contact;
+            
+            // Make popup visible
             document.getElementById('popup').style.display = 'flex';
         }
-
+        
         function closePopup() {
+            // Hide popup on close
             document.getElementById('popup').style.display = 'none';
         }
+        
     </script>
 </body>
 {% endblock %}

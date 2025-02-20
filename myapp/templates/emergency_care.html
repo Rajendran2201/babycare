@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'emergency_care.css' %}">
+{% endblock %}
+
+{% block content %}
+       
+    <div class="container">
+        <h2>Emergency Care Contacts</h2>
+        <div class="contact">
+            <strong>Child Care Hospital:</strong> 0422 2576111
+            <br>
+            <a href="tel:0422 2576111" class="call-button">Call Now</a>
+        </div>
+        <div class="contact">
+            <strong>Pediatrician Hotline:</strong> 07947133848
+            <br>
+            <a href="tel:07947133848" class="call-button">Call Now</a>
+        </div>
+        <div class="contact">
+            <strong>Emergency Call:</strong> 911
+            <br>
+            <a href="tel:911" class="call-button">Call Now</a>
+        </div>
+        <a href="#" class="location-button" onclick="findNearestHospital()">Find Nearest Hospital</a>
+    </div>
+
+    <script>
+        function findNearestHospital() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    window.open(`https://www.google.com/maps/search/child+care+hospital/@${lat},${lon},14z`);
+                }, function(error) {
+                    alert("Location access denied. Please enable location services.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+
+
+{% endblock %}

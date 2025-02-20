@@ -6,44 +6,12 @@
     font-family: Arial, sans-serif;
 }
 
-/* Header styles */
-.header {
-    background-color: #f8c8d2; /* Baby Pink */
+body {
+    background-color: azure;
 }
 
-.lists {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 20px;
-}
 
-.logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
 
-.item {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 0 20px;
-}
-
-/* Button styles */
-.cta-button {
-    height: 30px;
-    width: 100px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.cta-button:hover {
-    background-color: lightgray;
-}
 
 /* Container for cards */
 .container {
@@ -57,8 +25,6 @@
 
 /* Card styling */
 .card {
-    display: flex;
-    flex-direction: column;
     width: 300px;
     background-color: #ffebf0; /* Light baby pink */
     border-radius: 10px;
@@ -67,7 +33,6 @@
     text-align: center;
     transition: transform 0.3s ease-in-out;
     margin-top: 60px;
-    height: 100%;
 }
 
 .card:hover {
@@ -83,7 +48,6 @@
 
 /* Content styling */
 .card-content {
-    flex-grow: 1;
     padding: 15px;
 }
 
@@ -104,21 +68,25 @@
     background-color: #f48fb1; /* Pink */
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 15px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    text-decoration: none;
 }
 
 .card-button:hover {
     background-color: #f06292; /* Darker Pink */
-}
+}   
+
+
 
 /* Swiper Styles */
 /* Swiper Container */
 .swiper {
-    width: 100%;
-    height: 100%; /* Adjust height */
+    margin-top: 7px;
+    border-radius: 8px;
+    width: 75%;
+    height: 90%; /* Adjust height */
     overflow: hidden; /* Prevents extra slides from stacking */
 }
 
@@ -137,8 +105,7 @@
 
 /* Image Styling */
 .swiper-slide img {
-    width: 1550px;
-    height: 700px;
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -155,6 +122,12 @@
     border-radius: 10px;
 }
 
+/* Change Swiper navigation buttons to grey */
+.swiper-button-next,
+.swiper-button-prev {
+    color: grey !important; /* Sets button color to grey */
+}
+
 .carousel-text h2 {
     color: white;
     font-size: 24px;
@@ -164,28 +137,4 @@
 .carousel-text p {
     color: #ffebf0;
     font-size: 16px;
-}
-
-/* Card responsiveness and equal height */
-.card {
-    height: 100%;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-    flex-grow: 1;
-}
-
-/* Ensure all cards have equal heights */
-.container .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.card-button {
-    margin-top: auto; /* Pushes button to the bottom */
 }

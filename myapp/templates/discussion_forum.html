@@ -6,15 +6,64 @@
 {% block content %}
 
 <h2>Discussion Forum</h2>
-<a href="{% url 'discussion_create' %}">Create a New Discussion</a>
-<div>
-    {% for thread in threads %}
-        <div>
-            <h3><a href="{% url 'discussion_detail' pk=thread.pk %}">{{ thread.title }}</a></h3>
-            <p>{{ thread.content|truncatewords:20 }}</p>
-            <p>Created by {{ thread.created_by.username }} on {{ thread.created_at }}</p>
-        </div>
-    {% endfor %}
+<button onclick="openForm()">Create a New Discussion</button>
+
+<!-- Create Discussion Form (Popup) -->
+<div id="discussion-form" style="display: none;">
+    <input type="text" id="title" placeholder="Title" required>
+    <textarea id="content" placeholder="Discussion content..." required></textarea>
+    <button onclick="submitDiscussion()">Create</button>
+    <button onclick="closeForm()">Cancel</button>
 </div>
+
+<!-- Discussion List -->
+<div id="discussion-list"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", loadDiscussions);
+
+function loadDiscussions() {
+    fetch("/discussions/")
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById("discussion-list");
+            container.innerHTML = "";
+            data.threads.forEach(thread => {
+                container.innerHTML += `
+                    <div>
+                        <h3><a href="/discussions/${thread.id}/">${thread.title}</a></h3>
+                        <p>${thread.content.substring(0, 100)}...</p>
+                        <p>Created by ${thread.created_by__username} on ${thread.created_at}</p>
+                    </div>
+                `;
+            });
+        });
+}
+
+function openForm() {
+    document.getElementById("discussion-form").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("discussion-form").style.display = "none";
+}
+
+function submitDiscussion() {
+    const title = document.getElementById("title").value.trim();
+    const content = document.getElementById("content").value.trim();
+
+    fetch("/discussions/create/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, content })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Discussion added:", data);
+        loadDiscussions();  // Reload discussions after adding
+        closeForm();
+    });
+}
+</script>
 
 {% endblock %}
