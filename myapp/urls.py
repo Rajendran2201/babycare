@@ -26,7 +26,7 @@ urlpatterns = [
     path('discussion_forum', views.discussion_forum, name='discussion_forum'),
     path('thread/<int:pk>/', views.discussion_detail, name='discussion_detail'),
     path('create/', views.discussion_create, name='discussion_create'),
-    path('prediction', views.prediction, name='prediction'),
+    path('prediction', views.predict_cry, name='prediction'),
     path('play_audio', views.play_audio, name='play_audio'),
      path('emergency_care', views.emergency_care, name='emergency_care'),
 

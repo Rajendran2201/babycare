@@ -7,11 +7,13 @@
 <header class="header-block sticky-top">
   <div class="header sticky-top">
       <nav class="lists">
-          <img src="{% static "/assests/Baby birth1.gif" %}" alt="Logo" class="logo">
+        <div class="logo-block">
+          <img src="{% static "/assests/logo.jpg" %}" alt="Logo" class="logo">
+          <h1>TinyToes</h1>
+        </div>
           <div class="nav-wrapper">
               <div class="items">
                   <a href="{% url "index" %}" class="item">Home</a>
-                  <a href="#" class="item">Contacts</a>
                   <a href="{% url 'index' %}#carding" class="item">Our Services</a>
                   <a href="{% url "about" %}"  class="item">About Us</a>
               </div>
