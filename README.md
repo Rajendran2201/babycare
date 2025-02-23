@@ -37,6 +37,24 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+### Database Configuration
+
+Ensure to change the username and password for the database in the `babycare/BabyCare/setting.py` file before running the project:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'babycare_db',
+        'USER': 'db_user_name',
+        'PASSWORD': 'db_password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+```
+
+
 ## Contribution
 We welcome contributions! Please follow these steps:
 1. Fork the repository.
